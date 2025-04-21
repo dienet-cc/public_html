@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DieNet DDoS Services</title>
+    <style>
+        @font-face {
+            font-family: 'DIN Next Pro';
+            src: url('DINNextPro.woff2') format('woff2'),
+                 url('DINNextPro.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background: linear-gradient(to bottom, #232323, #2C2C2C);
+            font-family: 'DIN Next Pro', sans-serif;
+        }
+        video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+        video.loaded {
+            opacity: 1;
+        }
+        .logo {
+            position: fixed;
+            top: 15px;
+            left: 23px;
+            width: 100px;
+            height: auto;
+            z-index: 100;
+            transition: all 0.3s ease;
+        }
+        .logo:hover {
+            transform: scale(1.05);
+            opacity: 0.9;
+        }
+        .title {
+            position: fixed;
+            top: 42%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-family: 'DIN Next Pro', sans-serif;
+            font-size: 40px;
+            text-align: center;
+            z-index: 100;
+            width: 80vw;
+            padding: 0 5vw;
+            word-wrap: break-word;
+            white-space: normal;
+            line-height: 1;
+            font-weight: 400;
+            margin: 0;
+        }
+        .subtitle {
+            position: fixed;
+            top: calc(40% + 102px);
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-family: 'DIN Next Pro', sans-serif;
+            font-size: 20px;
+            text-align: center;
+            z-index: 100;
+            width: 60vw;
+            padding: 0 5vw;
+            word-wrap: break-word;
+            white-space: normal;
+            line-height: 1;
+            font-weight: 400;
+            margin: 0;
+        }
+        .red-text {
+            color: #CB0707;
+        }
+        .start-button {
+            position: fixed;
+            top: calc(40% + 150px);
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(to right, #D03C3C, #ff1a1a);
+            color: white;
+            font-family: 'DIN Next Pro', sans-serif;
+            font-size: 18px;
+            padding: 12px 30px;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 1px;
+            z-index: 100;
+            transition: all 0.9s ease;
+            text-decoration: none;
+        }
+        .start-button:hover {
+            background: linear-gradient(to right, #ff3333, #e60000);
+            transform: translateX(-50%) scale(1.05);
+        }
+        .start-button-text {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        .start-button-text::after {
+            content: "";
+            display: block;
+            width: 100%;
+            height: 2px;
+            background: white;
+            margin-top: -3px;
+        }
+        .arrow-icon {
+            width: 16px;
+            height: 16px;
+        }
+    </style>
+</head>
+<body>
+    <img src="dienet.png" alt="Logo" class="logo">
+    <div class="title">Die<span class="red-text">N</span>et DDoS is stronger Now</div>
+    <div class="subtitle">Layer7's advanced and smart bot net exceeds <span class="red-text" id="percentage">0%</span> of firewalls</div>
+    <button class="start-button" onclick="window.location.href='https://t.me/DIeNlt'">
+        <div class="start-button-text">Start Now</div>
+        <svg class="arrow-icon" fill="#ffffff" viewBox="-36.3 -36.3 402.60 402.60" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff" stroke-width="33.0002">
+            <path d="M233.252,155.997L120.752,6.001c-4.972-6.628-14.372-7.97-21-3c-6.628,4.971-7.971,14.373-3,21 l105.75,140.997L96.752,306.001c-4.971,6.627-3.627,16.03,3,21c2.698,2.024,5.856,3.001,8.988,3.001 c4.561,0,9.065-2.072,12.012-6.001l112.5-150.004C237.252,168.664,237.252,161.33,233.252,155.997z"></path>
+        </svg>
+    </button>
+    <video autoplay muted loop>
+        <source src="th.mp4" type="video/mp4">
+        متصفحك لا يدعم تشغيل الفيديو.
+    </video>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const video = document.querySelector('video');
+            video.addEventListener('loadeddata', function() {
+                video.classList.add('loaded');
+            });
+            setTimeout(function() {
+                video.classList.add('loaded');
+            }, 3000);
+            
+            // Animation for percentage
+            const percentageElement = document.getElementById('percentage');
+            const targetPercentage = 98;
+            const duration = 3000; // 3 seconds
+            const startTime = Date.now();
+            
+            // Start from random number between 1 and 10
+            let currentPercentage = Math.floor(Math.random() * 10) + 1;
+            percentageElement.textContent = currentPercentage + '%';
+            
+            function animatePercentage() {
+                const elapsed = Date.now() - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                
+                // Ease-out function for slowing down at the end
+                const easeProgress = 1 - Math.pow(1 - progress, 3);
+                
+                currentPercentage = Math.min(
+                    currentPercentage + (targetPercentage - currentPercentage) * easeProgress,
+                    targetPercentage
+                );
+                
+                percentageElement.textContent = Math.round(currentPercentage) + '%';
+                
+                if (progress < 1) {
+                    requestAnimationFrame(animatePercentage);
+                } else {
+                    percentageElement.textContent = targetPercentage + '%';
+                }
+            }
+            
+            // Start animation after a small delay
+            setTimeout(animatePercentage, 500);
+        });
+    </script>
+</body>
+</html>
